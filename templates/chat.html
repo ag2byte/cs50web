@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+    <script type="text/javascript" src="{{ url_for('static',filename = 'javascript/chat.js')}}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css')}}" />
+    <!-- replace the above when you are ready  -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Quicksand" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>flack</title>
+</head>
+
+<body onload="responsive()" onresize="responsive()">
+    <nav>
+        <h1>flack.</h1>
+        <div id="right-nav">
+
+            <h5>
+                Hi <h5 id="username"></h5>
+                <style>
+                    h5 {
+                        padding-top: 3px;
+                        text-align: center;
+                    }
+                </style>
+            </h5>
+        </div>
+    </nav>
+    <div class="chatbox">
+        <div id="chat-right">
+            <a class="size-control" href="#" onclick="sidebar()"><i class="medium material-icons">chevron_left</i></a>
+
+            <div id="channels">
+                <!-- this is the list of all channels  -->
+                <h2>Channels</h2>
+                <br>
+                <button id="add-channel" class="btn" onclick="cnchannel()">add</button>
+
+                {% for channel in channels %}
+                <p id="{{ channel }}" class="channelname" onclick="load_page(`{{ channel }}` )">{{ channel }}</p>
+                {% endfor %}
+
+
+            </div>
+
+        </div>
+        <div id="messages">
+
+            <div id="chat">
+                <!-- this area is for messages  -->
+            </div>
+            <div id="type">
+                <input type="text" id="user-message" placeholder="Say something" autocomplete="off">
+                <button type="submit" class="send" onclick="new_message()">send</button>
+                <style>
+                    .send {
+                        font-family: Quicksand, arial;
+                    }
+                </style>
+            </div>
+        </div>
+
+    </div>
+    <!-- displaying user is typing  -->
+    <p id="typing"></p>
+</body>
+
+</html>

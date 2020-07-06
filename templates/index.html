@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}
+flack
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css')}}" />
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Quicksand" />
+
+{% endblock %}
+
+
+{% block body %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const h1 = document.querySelector('h1');
+        const disp_name = document.querySelector('.disp-name');
+        h1.style.animationPlayState = 'paused';
+        disp_name.style.animationPlayState = 'paused';
+
+        document.addEventListener('click', () => {
+            if (h1.style.animationPlayState === 'paused')
+                h1.style.animationPlayState = 'running';
+
+            if (disp_name.style.animationPlayState === 'paused')
+                disp_name.style.animationPlayState = 'running';
+
+
+        }, true)
+
+    });
+    function set_username() {
+        username = document.getElementById("display-name").value;
+        if (username.length > 0) {
+            document.getElementById("display-name").value = '';
+            localStorage.setItem('username', username);
+            history.pushState('', 'flack', '/chat');//for moving to chat page
+
+        }
+
+
+    }
+
+</script>
+
+<h1>flack.</h1>
+
+<form action="" class="disp-name">
+    <input type="text" id="display-name" placeholder="Your Display name" autocomplete="off">
+    <input type="submit" id="display-submit" onclick="set_username()">
+</form>
+
+
+
+
+
+
+{% endblock %}
