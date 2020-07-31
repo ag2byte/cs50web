@@ -5,4 +5,4 @@ A wikipedia clone made using Django and designed using HTML,CSS and Bootstrap.
 - user can edit an existing page contents
 - user can search for a page
 
-####Run it on localhost. Not deployed currently.
+#### Run it on localhost. Not deployed currently.
