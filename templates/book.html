@@ -1,0 +1,82 @@
+<!-- this is the book page  -->
+{% extends "layout.html" %} {% block title %} Bookritic : Search {% endblock %}
+{%block head%}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='book.css')}}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='layout.css')}}" />
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet" />
+{% endblock %} {% block body %}
+
+<div class="navigation">
+    <a href="/search">
+        <div id="Bookritic">Bookritic</div>
+    </a>
+    <div id="navsign">
+        <a href="/logout"><button class="btn">Log-out</button></a>
+        <h4>Hi, {{ username }}</h4>
+        <style>
+            h4 {
+                font-family: calibri;
+                color: white;
+            }
+        </style>
+    </div>
+</div>
+<div class="results">
+    {% with messages = get_flashed_messages() %}
+    {%if messages %}
+    <p>{{messages}}</p>
+    {%endif%}
+    {%endwith%}
+    <div id="top_part">
+        <!-- displaying the book info -->
+        <div>
+            <h1>{{book['title']}}</h1>
+            <h3>Author: {{book['author']}}</h3>
+            <h3>Published in: {{book['year']}}</h3>
+            <h3>ISBN: {{book['isbn']}}</h3>
+            <h3>Average Rating: {{grev["books"][0]["average_rating"]}}</h3>
+            <h3>Total Goodreads reviews: {{grev["books"][0]["reviews_count"]}}</h3>
+        </div>
+        <!--  review field  -->
+        <div>
+            <form method="POST" action="/books/{{book['id']}}" class="form" autocomplete="off">
+                <div id="criteria">
+                    <input type="radio" name="rating" value="1" checked />1
+                    <input type="radio" name="rating" value="2" />2
+                    <input type="radio" name="rating" value="3" />3
+                    <input type="radio" name="rating" value="4" />4
+                    <input type="radio" name="rating" value="5" />5
+                </div>
+
+                <input type="text" name="review_text" class="form-control" required placeholder="Add your review" />
+                <button>Add review</button>
+            </form>
+        </div>
+    </div>
+    <!-- this displays the reviews  -->
+    <div id="bottom_part">
+        {% if not reviews %}
+        <h3>No reviews yet</h3>
+        {% else %}
+        <table>
+            <thead>
+                <tr>
+                    <th id="user">User</th>
+                    <th id="review">Review</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in reviews %}
+                <tr>
+                    <td class="tableitem">{{item['username']}}</td>
+                    <td class="tableitem">{{item['review']}}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        {%endif%}
+    </div>
+</div>
+
+{%endblock%}

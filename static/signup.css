@@ -1,0 +1,13 @@
+
+
+
+#signupcard{
+    position: absolute;
+    width: 560px;
+    height:486px;
+    background-color: white;
+    box-shadow: 17px 22px 11px rgba(0, 0, 0, 0.25);
+    left:35%;
+    top:25%;
+    
+}

@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Bookritic : signin
+{% endblock %}
+{%block head%}
+<link rel="stylesheet" href="{{ url_for('static', filename='signin.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='layout.css')}}">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+{% endblock %}
+{% block body %}
+<!-- adding navbar -->
+<div class="navigation">
+    <div id="Bookritic">Bookritic </div>
+    <div id="navsign">
+        <a href="signup"> <button class="btn">Sign-up</button></a>
+    </div>
+</div>
+<div id="twocolumn">
+    <div id="ltext">Bookritic
+        <div id="lltext">Get thousands of reviews online or add you own</div>
+    </div>
+    <div id="signincard">
+        <form action="/" method="POST" class="formgroup" autocomplete="off">
+
+
+            <input type="text" class="form-control" placeholder="Username" name="input1" required>
+            <!--username-->
+
+            <input type="password" class="form-control" placeholder="Password" name="input2" required>
+            <!--password-->
+
+
+
+            <button class="btn">login</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

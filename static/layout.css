@@ -1,0 +1,77 @@
+body{
+    background-image: url(background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    /* background: url(background.jpg); */
+    padding-left: 150px;
+    padding-right:150px;
+    
+    
+
+    
+}
+
+.form-control{
+    width: 426px;
+    height: 42px;
+    border: 1px solid #D0D0D0;
+    box-sizing: border-box;
+    
+}
+.formgroup{
+    position: relative;
+    top:157px;
+    left: 67px;
+    height:200px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#navsign{
+    padding-top: 52px;
+}
+#Bookritic{
+    
+    font-family:Raleway; 
+    font-size:35px;
+    color:white;
+    padding-top:40px;
+ }
+.navigation{
+    top:62px;
+    height:120px;
+    display: flex;
+    justify-content: space-between;
+}
+.btn{
+    width: 80px;
+    height: 26px;
+    font-family: Calibri;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 15px;
+    line-height: 17px;
+/* identical to box height */
+
+    text-align: center;
+    background-color: #E88919;
+    color:white;
+    border:none;
+}
+#criteria{
+    position: relative;
+    top:0px;
+    display:flex;
+    flex-direction: row;
+}
+.results {
+    width: 100%;
+
+    height: auto;
+    background: #FFFFFF;
+    box-shadow: 15px 20px 5px rgba(0, 0, 0, 0.25);
+}
+a{
+    text-decoration: none;
+}

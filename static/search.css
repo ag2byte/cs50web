@@ -1,0 +1,11 @@
+#searchcard{
+    position: absolute;
+    width: 754px;
+    height: 43%;
+    left: 30%;
+    top: 280px;
+    
+    background: #FFFFFF;
+    box-shadow: 15px 20px 5px rgba(0, 0, 0, 0.25);
+}
+

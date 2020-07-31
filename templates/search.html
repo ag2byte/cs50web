@@ -1,0 +1,39 @@
+<!-- this is the page user sees after logging in -->
+{% extends "layout.html" %} {% block title %} Bookritic : Search {% endblock %}
+{%block head%}
+<link rel="stylesheet" href="{{ url_for('static', filename='search.css')}}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='layout.css')}}" />
+
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet" />
+{% endblock %} {% block body %}
+<!-- navigation -->
+<div class="navigation">
+  <a href="/search">
+    <div id="Bookritic">Bookritic</div>
+  </a>
+  <div id="navsign">
+    <a href="/logout"><button class="btn">Log-out</button></a>
+    <h4>Hi, {{ username }}</h4>
+    <style>
+      h4 {
+        font-family: calibri;
+        color: white;
+      }
+    </style>
+  </div>
+</div>
+<div id="searchcard">
+  <form action="/search" method="POST" class="formgroup" autocomplete="off">
+    <div id="criteria">
+      <!--radio buttons for selecting search type-->
+      <input type="radio" name="searchtype" value="isbn" checked />ISBN
+      <input type="radio" name="searchtype" value="title" />Title
+      <input type="radio" name="searchtype" value="author" />Author
+    </div>
+    <!-- search item -->
+    <input type="text" name="searchfield" class="form-control" required placeholder="Enter search item" />
+    <button class="btn">Search</button>
+  </form>
+
+
+  {% endblock %}

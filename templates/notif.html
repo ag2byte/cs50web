@@ -1,0 +1,37 @@
+<!-- this page is used for displaying notifications and error messages -->
+{% extends "layout.html" %}
+
+{% block title %}
+Bookritic
+{% endblock %}
+{%block head%}
+<link rel="stylesheet" href="{{ url_for('static', filename='layout.css')}}">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div class="navigation">
+    <div id="Bookritic">Bookritic </div>
+    <!-- <div id="navsign">
+        <a href="./"><button class="btn">Sign-in</button></a>
+    </div> -->
+</div>
+<h2>{{ message }},go to <a href="{{ link }}">{{ pagemessage }} </a>page</h2>
+<style>
+    h2 {
+        font-family: Calibri;
+        font-weight: 200;
+        font-size: 40px;
+        align-items: center;
+        padding-top: 80px;
+        padding-left: 15%;
+        color: white;
+    }
+
+    a {
+        color: #E88919;
+        text-decoration: none;
+
+    }
+</style>
+{% endblock %}
