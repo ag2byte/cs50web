@@ -1,0 +1,14 @@
+  
+body{
+    font-family: 'Montesterrat',Arial;
+}
+
+.body{
+    margin: 30px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+  
+.nav-item{
+    font-weight: 300;
+}

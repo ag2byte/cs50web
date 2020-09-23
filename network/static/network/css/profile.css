@@ -1,0 +1,8 @@
+.follow{
+    margin-top:3rem;
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:18px;
+    color:black;
+    justify-content: space-evenly;
+}
