@@ -8,6 +8,7 @@ urlpatterns = [
     path('', views.login_view, name='login'),
     path('data', views.get_data, name='data'),
     path('testf', views.testfunction, name='testf'),
+    path('transactions', views.transactions, name='transactions'),
     path('index',views.index,name='index'),
     path('logout',views.logout_view,name='logout'),
 

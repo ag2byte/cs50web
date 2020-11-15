@@ -74,3 +74,10 @@ def get_data(request):
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse("login"))
+
+def transactions(request):
+    trans_list = Expense.objects.all().filter(
+        user = request.user ).order_by('id').reverse()
+    
+    return render(request, "capstone/transactions.html",{'trans':trans_list})
+    

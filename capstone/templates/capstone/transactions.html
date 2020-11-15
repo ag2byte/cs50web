@@ -1,0 +1,25 @@
+<!-- this is the first page after login -->
+{% extends "capstone/layout.html" %} {% load static%} {% block links %}
+<link href="{% static 'capstone/css/index.css' %}" rel="stylesheet" />
+
+{% endblock %}{% block main %}
+<span class="top-name">Hi, {{user.username}}</span>
+<table>
+  <thead>
+    <th>Date</th>
+    <th>Summary</th>
+    <th>Type</th>
+    <th>Amt</th>
+  </thead>
+  <tbody>
+    {% for t in trans %}
+    <tr>
+      <td>{{t.date}}</td>
+      <td>{{t.summary}}</td>
+      <td>{{t.exp_type}}</td>
+      <td>{{t.amt}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
