@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse,HttpResponseRedirect
-from .models import User
+from .models import User,Income,Expense
 from django.db import IntegrityError
 from django.contrib.auth import login,authenticate,logout
 from django.urls import reverse
