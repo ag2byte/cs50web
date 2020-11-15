@@ -1,0 +1,88 @@
+<!-- this is the layout for inside the project -->
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}{% endblock %}</title>
+    <!--insert title here -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <!-- {% block head %}
+    {% endblock %} -->
+    <!-- use this for extra links to CSS  -->
+    <link href="{% static 'capstone/css/layout.css' %}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e1f830ae5a.js" crossorigin="anonymous"></script>
+
+    {% block links %}
+    {% endblock %}
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="" class="nav-link">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chart-area" class="svg-inline--fa fa-chart-area fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M500 384c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v308h436zM372.7 159.5L288 216l-85.3-113.7c-5.1-6.8-15.5-6.3-19.9 1L96 248v104h384l-89.9-187.8c-3.2-6.5-11.4-8.7-17.4-4.7z"></path></svg>
+                    <span class="link-text">
+                        Reports
+                    </span>
+                    <!-- <i class="fas fa-stream"></i> -->
+
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="wallet" class="svg-inline--fa fa-wallet fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M461.2 128H80c-8.84 0-16-7.16-16-16s7.16-16 16-16h384c8.84 0 16-7.16 16-16 0-26.51-21.49-48-48-48H64C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h397.2c28.02 0 50.8-21.53 50.8-48V176c0-26.47-22.78-48-50.8-48zM416 336c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32z"></path></svg>
+                    </svg>
+                    <span class="link-text">
+                        Transactions
+                    </span>
+                    <!-- <i class="fas fa-angle-double-up"></i> -->
+
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>
+                    <span class="link-text">
+                       New Entry
+                    </span>
+                    <!-- <i class="fas fa-angle-double-up"></i> -->
+
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'logout' %}" class="nav-link">
+                    <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="user"
+                        class="svg-inline--fa fa-user fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512">
+                        <path fill="currentColor"
+                            d="M313.6 304c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 304 0 364.2 0 438.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-25.6c0-74.2-60.2-134.4-134.4-134.4zM400 464H48v-25.6c0-47.6 38.8-86.4 86.4-86.4 14.6 0 38.3 16 89.6 16 51.7 0 74.9-16 89.6-16 47.6 0 86.4 38.8 86.4 86.4V464zM224 288c79.5 0 144-64.5 144-144S303.5 0 224 0 80 64.5 80 144s64.5 144 144 144zm0-240c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z">
+                        </path>
+                    </svg>
+                    <span class="link-text">
+                        Logout
+                    </span>
+                    <!-- <i class="far fa-user"></i> -->
+
+
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+    <main>
+        {% block main %}
+        {% endblock %}
+    </main>
+</body>
+
+</html>

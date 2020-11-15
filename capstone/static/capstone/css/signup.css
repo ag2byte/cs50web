@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+body {
+  background: url("../images/signup.jpg");
+  background-repeat: no-repeat;
+  background-position: center 35%;
+}
+
+#signupcard {
+  display: flex;
+  flex-direction: row ;
+  padding-top: 15%;
+  padding-left: 25%;
+}
+#signupcard input {
+  
+  width: 25%;
+  margin-bottom: 5%;
+  padding-left: 50px;
+  font-size: 20px;
+  height: 70px;
+  border: solid 4px #4052f2;
+  background: white;
+  border-radius: 150px;
+}
+/* input::placeholder {
+    padding-left: 100px;
+  } */
+#signupcard button {
+  width: 20%;
+  margin-bottom: 5%;
+
+  height: 60px;
+  border: none;
+  background: #4052f2;
+  border-radius: 150px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+#signupcard button:hover {
+  transition: ease-in 200ms;
+  background: #fcaa23;
+  cursor: pointer;
+}

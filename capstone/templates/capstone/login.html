@@ -1,0 +1,44 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'capstone/css/login.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <title>Capstone</title>
+
+</head>
+
+
+<body>
+
+    <main>
+        <div id='header'>
+            <span id='capstone'>
+                Capstone.
+            </span>
+            <span> Your money simplified</span>
+        </div>
+        <div id='img'>
+
+        </div>
+        <div  id='login-card'>
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+            <input type="text" autocomplete="off" placeholder="Username" name="username" class="input">
+            <input type="Password" placeholder="password"name="password" id="">
+            <button type="submit"> Sign in </button>
+            </form>
+            <a href="{% url 'signup' %}""> New user? Signup</a>
+            
+        </div>
+    </main>
+
+    <!-- <script src="{% static 'capstone/js/index.js' %}"></script> -->
+
+</body>
+
+
+</html>

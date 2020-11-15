@@ -1,0 +1,10 @@
+.top-name {
+  height: 50px;
+  margin-right: 5%;
+  /* position: absolute; */
+  text-align-last: right;
+  font-weight: 800;
+  color: #415bad;
+  font-family: "Open Sans", arial;
+  font-size: 40px;
+}

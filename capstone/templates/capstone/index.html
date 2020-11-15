@@ -1,0 +1,11 @@
+<!-- this is the first page after login -->
+{% extends "capstone/layout.html" %} {% load static%} {% block links %}
+<link href="{% static 'capstone/css/index.css' %}" rel="stylesheet" />
+
+{% endblock %}{% block main %}
+<span class="top-name">Hi, {{user.username}}</span>
+<script>
+  var data = JSON.parse("{{data|escapejs}}");
+  console.log(data);
+</script>
+{% endblock %}
