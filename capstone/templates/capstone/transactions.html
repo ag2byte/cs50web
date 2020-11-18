@@ -1,9 +1,27 @@
 <!-- this is the first page after login -->
 {% extends "capstone/layout.html" %} {% load static%} {% block links %}
 <link href="{% static 'capstone/css/index.css' %}" rel="stylesheet" />
+<link href="{% static 'capstone/css/transactions.css' %}" rel="stylesheet" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap"
+  rel="stylesheet"
+/>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
 
 {% endblock %}{% block main %}
 <span class="top-name">Hi, {{user.username}}</span>
+
+<div class="dropdown">
+  <button>Transaction type</button>
+  <ul>
+    <li>Income</li>
+    <li>Expense</li>
+  </ul>
+</div>
 <table>
   <thead>
     <th>Date</th>
@@ -14,10 +32,10 @@
   <tbody>
     {% for t in trans %}
     <tr>
-      <td>{{t.date}}</td>
-      <td>{{t.summary}}</td>
-      <td>{{t.exp_type}}</td>
-      <td>{{t.amt}}</td>
+      <td class="table_date">{{t.date}}</td>
+      <td class="table_summ">{{t.summary}}</td>
+      <td class="table_type">{{t.exp_type}}</td>
+      <td class="table_amt">{{t.amt}}</td>
     </tr>
     {% endfor %}
   </tbody>

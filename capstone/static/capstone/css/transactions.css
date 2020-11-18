@@ -1,0 +1,86 @@
+table {
+  margin: 8vh 15vh 0 15vh;
+  /* margin-left: 10vh; */
+  border-collapse: collapse;
+  /* border-spacing: 0; */
+  /* text-align: center; */
+  width: 80%;
+  font-family: "Open Sans", arial;
+}
+thead {
+  font-size: 25px;
+  font-weight: bold;
+  height: 30px;
+  text-align: left;
+  /* margin-bottom: 50px */
+  color: white;
+  background-color: #0b0722;
+}
+tbody {
+  font-size: 20px;
+}
+tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+th,
+td {
+  padding: 12px 12px;
+}
+.table_date {
+  /* position: relative; */
+  width: 15%;
+}
+.table_summ {
+  width: 60%;
+}
+.dropdown {
+  margin-top: 50px;
+  margin-left: 75%;
+  position: relative;
+  font-family: "Quicksand", arial;
+}
+button {
+  cursor: pointer;
+  margin-top: 25px;
+  width: 240px;
+  height: 50px;
+  font-size: 20px;
+  font-family: "Quicksand", arial;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  border: none;
+  background: #0b0722;
+}
+button:hover {
+  background: #fcaa23;
+  transition: ease 200ms;
+}
+.dropdown ul {
+  border-radius: 5px;
+  font-size: 20px;
+  margin-top: 10px;
+  background: blue;
+  position: absolute;
+  left: 0px;
+  width: 200px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  font-weight: bold;
+  /* bottom: 0px; */
+}
+.dropdown ul li {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dropdown ul li:hover {
+  background: #415bad;
+}
