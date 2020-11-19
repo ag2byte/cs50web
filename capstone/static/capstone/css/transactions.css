@@ -40,47 +40,16 @@ td {
   position: relative;
   font-family: "Quicksand", arial;
 }
-button {
-  cursor: pointer;
-  margin-top: 25px;
-  width: 240px;
-  height: 50px;
-  font-size: 20px;
-  font-family: "Quicksand", arial;
-  text-align: center;
-  font-weight: bold;
-  color: white;
+#rec-type {
   border: none;
-  background: #0b0722;
-}
-button:hover {
-  background: #fcaa23;
-  transition: ease 200ms;
-}
-.dropdown ul {
-  border-radius: 5px;
-  font-size: 20px;
-  margin-top: 10px;
-  background: blue;
-  position: absolute;
-  left: 0px;
+  outline: none;
+  background-color: transparent;
   width: 200px;
-  height: 150px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  list-style: none;
+  height: auto;
+  text-align: center;
+  text-align-last: center;
+  font-family: "Quicksand";
+  font-size: 1.5rem;
   font-weight: bold;
-  /* bottom: 0px; */
-}
-.dropdown ul li {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.dropdown ul li:hover {
-  background: #415bad;
+  color: #0b0722;
 }

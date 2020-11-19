@@ -16,11 +16,14 @@
 <span class="top-name">Hi, {{user.username}}</span>
 
 <div class="dropdown">
-  <button>Transaction type</button>
-  <ul>
-    <li>Income</li>
-    <li>Expense</li>
-  </ul>
+  <select name="rec-type" id="rec-type">
+    <a href="{% url 'transactions' rec_type='expense' %}">
+      <option value="Expense">Expense</option>
+    </a>
+    <a href="{% url 'transactions' rec_type='expense' %}">
+      <option value="Income">Income</option>
+    </a>
+  </select>
 </div>
 <table>
   <thead>

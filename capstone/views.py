@@ -75,9 +75,14 @@ def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse("login"))
 
-def transactions(request):
-    trans_list = Expense.objects.all().filter(
-        user = request.user ).order_by('id').reverse()
+def transactions(request,rec_type):
+    if rec_type == 'expense':
+        trans_list = Expense.objects.all().filter(
+            user = request.user ).order_by('id').reverse()
     
-    return render(request, "capstone/transactions.html",{'trans':trans_list})
+        return render(request, "capstone/transactions.html", {'trans': trans_list})
+    elif rec_type == 'income':
+        trans_list = Income.objects.all().filter(user=request.user).order_by('id').reverse()
+        return render(request, "capstone/transactions.html", {'trans': trans_list})
+        
     

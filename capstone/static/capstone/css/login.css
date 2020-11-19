@@ -26,7 +26,7 @@ main {
   grid-column-end: 3;
 }
 #header #capstone {
-  background: #fcaa23;
+  color: #fcaa23;
   /* color: ; */
 }
 #img {
