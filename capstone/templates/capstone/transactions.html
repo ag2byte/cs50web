@@ -17,12 +17,12 @@
 
 <div class="dropdown">
   <select name="rec-type" id="rec-type">
-    <a href="{% url 'transactions' rec_type='expense' %}">
-      <option value="Expense">Expense</option>
-    </a>
-    <a href="{% url 'transactions' rec_type='expense' %}">
-      <option value="Income">Income</option>
-    </a>
+    <!-- <a href="{% url 'transactions' rec_type='expense' %}"> -->
+    <option value="expense">Expense</option>
+    <!-- </a> -->
+    <!-- <a href="{% url 'transactions' rec_type='expense' %}"> -->
+    <option value="income">Income</option>
+    <!-- </a> -->
   </select>
 </div>
 <table>
@@ -37,10 +37,26 @@
     <tr>
       <td class="table_date">{{t.date}}</td>
       <td class="table_summ">{{t.summary}}</td>
-      <td class="table_type">{{t.exp_type}}</td>
+      <td class="table_type">{{t.t_type}}</td>
       <td class="table_amt">{{t.amt}}</td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
+<script>
+  var drop_down = document.getElementById("rec-type");
+  // console.log(drop_down.value);
+  const rec_type = drop_down.value;
+  var url;
+
+  drop_down.addEventListener("change", () => {
+    if (rec_type == "expense")
+      url = `{% url 'transactions' rec_type='expense' %}`;
+    else if (rec_type == "income")
+      url = `{% url 'transactions' rec_type='income' %}`;
+
+    document.location.href = url;
+    console.log(url);
+  });
+</script>
 {% endblock %}

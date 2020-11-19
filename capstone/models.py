@@ -17,7 +17,7 @@ class Income(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateField(auto_now=True)
     summary = models.CharField(max_length=128)
-    inc_type = models.CharField(max_length=56, choices=INC_CHOICES)
+    t_type = models.CharField(max_length=56, choices=INC_CHOICES)
     amt = models.IntegerField(default=0)
 
 class Expense(models.Model):
@@ -34,5 +34,5 @@ class Expense(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateField(auto_now=True)
     summary = models.CharField(max_length=128)
-    exp_type = models.CharField(max_length=56, choices=EXP_CHOICES)
+    t_type = models.CharField(max_length=56, choices=EXP_CHOICES)
     amt = models.IntegerField(default=0)
