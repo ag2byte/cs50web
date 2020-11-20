@@ -11,5 +11,6 @@ urlpatterns = [
     path('transactions/<str:rec_type>', views.transactions, name='transactions'),
     path('index',views.index,name='index'),
     path('logout',views.logout_view,name='logout'),
+    path('newentry',views.newentry,name='newentry'),
 
 ]

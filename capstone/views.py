@@ -85,4 +85,5 @@ def transactions(request,rec_type):
         trans_list = Income.objects.all().filter(user=request.user).order_by('id').reverse()
         return render(request, "capstone/transactions.html", {'trans': trans_list})
         
-    
+def newentry(request):
+    return render(request,"capstone/newentry.html")
