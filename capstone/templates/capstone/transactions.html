@@ -16,7 +16,9 @@
 <span class="top-name">Hi, {{user.username}}</span>
 
 <div class="dropdown">
+  <span id="record">Expense</span>
   <select name="rec-type" id="rec-type">
+    <option>Select records</option>
     <!-- <a href="{% url 'transactions' rec_type='expense' %}"> -->
     <option value="expense">Expense</option>
     <!-- </a> -->
@@ -46,10 +48,17 @@
 <script>
   var drop_down = document.getElementById("rec-type");
   // console.log(drop_down.value);
-  const rec_type = drop_down.value;
+  window.onload = () => {
+    var record = document.getElementById("record");
+    if (window.location.pathname == "/transactions/expense")
+      record.innerHTML = "Expense";
+    else if (window.location.pathname == "/transactions/income")
+      record.innerHTML = "Income";
+  };
   var url;
 
   drop_down.addEventListener("change", () => {
+    const rec_type = drop_down.value;
     if (rec_type == "expense")
       url = `{% url 'transactions' rec_type='expense' %}`;
     else if (rec_type == "income")

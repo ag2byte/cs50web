@@ -35,10 +35,17 @@ td {
   width: 60%;
 }
 .dropdown {
+  margin-left: 15vh;
   margin-top: 50px;
-  margin-left: 75%;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
   position: relative;
   font-family: "Quicksand", arial;
+}
+.dropdown span {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 #rec-type {
   border: none;
