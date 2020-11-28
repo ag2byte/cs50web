@@ -8,3 +8,13 @@
   font-family: "Open Sans", arial;
   font-size: 40px;
 }
+.graphs {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+canvas {
+  width: 50%;
+  height: 2000px;
+}

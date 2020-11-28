@@ -1,11 +1,78 @@
 <!-- this is the first page after login -->
 {% extends "capstone/layout.html" %} {% load static%} {% block links %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 <link href="{% static 'capstone/css/index.css' %}" rel="stylesheet" />
 
 {% endblock %}{% block main %}
 <span class="top-name">Hi, {{user.username}}</span>
+
+<div class="graphs">
+  <!-- <span> hello </span> -->
+  <canvas id="income_Chart"></canvas>
+  <canvas id="expense_Chart"></canvas>
+</div>
 <script>
-  var data = JSON.parse("{{data|escapejs}}");
-  console.log(data);
+  let income_Chart = document.getElementById("income_Chart").getContext("2d");
+  let iChart = new Chart(income_Chart, {
+    type: "bar",
+    data: {
+      labels: ["Salary", "Others"],
+      datasets: [
+        {
+          label: "Income",
+          data: [12000, 15000],
+          backgroundColor: ["#415bad", "#1d5981"],
+          borderWidth: 0,
+          hoverBorderWidth: 1,
+          hoverBorderColor: "white",
+          barThickness: 20,
+        },
+      ],
+    },
+    options: {
+      responsive: false,
+      maintainAspectRatio: false,
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+            },
+          },
+        ],
+      },
+    },
+  });
+  let expense_Chart = document.getElementById("expense_Chart").getContext("2d");
+  let eChart = new Chart(expense_Chart, {
+    type: "bar",
+    data: {
+      labels: ["Salary", "Others", "bewurbu", "sdfsdf", "sfsefse"],
+      datasets: [
+        {
+          label: "Income",
+          data: [12000, 15000, 2323, 2323, 3223],
+          backgroundColor: ["#415bad", "#1d5981"],
+          borderWidth: 0,
+          hoverBorderWidth: 1,
+          hoverBorderColor: "white",
+        },
+      ],
+    },
+    options: {
+      responsive: false,
+      maintainAspectRatio: false,
+
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+            },
+          },
+        ],
+      },
+    },
+  });
 </script>
 {% endblock %}

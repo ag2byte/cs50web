@@ -4,7 +4,7 @@
   --text-primary: #b6b6b6;
   --text-secondary: #ececec;
   --bg-primary: #0b0722;
-  --bg-secondary: #415bad;
+  --bg-secondary: #4185ad;
 }
 
 body {
@@ -29,6 +29,7 @@ body::-webkit-scrollbar-thumb {
 main {
   margin-left: 5rem;
   padding: 1rem;
+  margin-right: 5rem;
 }
 
 .navbar {
@@ -93,7 +94,7 @@ main {
   font-weight: 300;
 }
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .navbar {
     bottom: 0;
     width: 100vw;
@@ -115,8 +116,8 @@ main {
   main {
     margin: 0;
   }
-}
-
+} */
+/* 
 @media only screen and (min-width: 600px) {
   .navbar {
     top: 0;
@@ -139,4 +140,4 @@ main {
   .navbar:hover .logo-text {
     left: 0px;
   }
-}
+} */
