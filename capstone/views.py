@@ -5,7 +5,7 @@ from django.db import IntegrityError
 from django.contrib.auth import login,authenticate,logout
 from django.urls import reverse
 from json import dumps
-
+from django.db.models import Sum
 # this is what we use to create the dictionaried that we are making to senf to frontend
 exp_type = ['Food','Rent','Entertainment','Business','Travel','Misc']
 inc_type = ['Salary','Others']
@@ -22,17 +22,13 @@ def testfunction(request):
     #     print(i.summary)
     # print(exp_type,inc_type)
     foo = dict()
-    for item in exp_type:
+    for key in exp_type:
         
-        t = Expense.objects.all().filter(t_type=item)
-        for t_item in t:
-            if item in foo.keys():
-                foo[item].append(t_item)
-            else:
-                foo[item] = []
-                foo[item].append(t_item)
-        t.clear()        
-        print(foo)
+        t = Expense.objects.all().filter(t_type=key)
+            
+        foo[key]=t.aggregate(Sum('amt'))
+    print(foo)
+    print(foo['Food']['amt__sum'])
         
     return HttpResponse('this is a test function')
 
@@ -80,8 +76,19 @@ def login_view(request):
         
            
 def index(request):
-    
-    return render(request, 'capstone/index.html')
+    exp_dict = {}
+    inc_dict = {}
+    for key in exp_type:
+        t = Expense.objects.all().filter(t_type=key)
+            
+        exp_dict[key]=t.aggregate(Sum('amt'))
+    for key in inc_type:
+        t = Income.objects.all().filter(t_type=key)
+            
+        inc_dict[key]=t.aggregate(Sum('amt'))
+    inc_dict = dumps(inc_dict)
+    exp_dict = dumps(exp_dict)
+    return render(request, 'capstone/index.html',{'inc':inc_dict,'exp':exp_dict})
 
 # Create your views here.
 
@@ -92,7 +99,7 @@ def get_data(request):
         'customers': 10,
     }
     data = dumps(data)
-    return render(request,"capstone/index.html",{"data":data})
+    return HttpResponse('get_Data',{'data':data})
 
 def logout_view(request):
     logout(request)
