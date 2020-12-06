@@ -91,16 +91,16 @@ def index(request):
     # print(inc_dict,exp_dict)
     return render(request, 'capstone/index.html',{'inc':inc_dict,'exp':exp_dict})
 
-# Create your views here.
 
 
-def get_data(request):
-    data = {
-        'sales': 100,
-        'customers': 10,
-    }
-    data = dumps(data)
-    return render(request,"capstone/test.html",{'data':data})
+
+# def get_data(request):
+#     data = {
+#         'sales': 100,
+#         'customers': 10,
+#     }
+#     data = dumps(data)
+#     return render(request,"capstone/test.html",{'data':data})
 
 def logout_view(request):
     logout(request)
