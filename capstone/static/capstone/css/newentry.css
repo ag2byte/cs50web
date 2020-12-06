@@ -1,0 +1,33 @@
+.newentry {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.newentry select,
+input {
+  width: 300px;
+  height: 50px;
+  font-family: "Quicksand", arial;
+  font-size: 20px;
+
+  color: #0b0722;
+}
+button {
+  margin-left: 77%;
+  width: 300px;
+  height: 50px;
+  border: none;
+  background: #4052f2;
+  border-radius: 150px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  margin-top: 100px;
+}
+
+button:hover {
+  transition: ease-in 200ms;
+  background: #fcaa23;
+  cursor: pointer;
+}

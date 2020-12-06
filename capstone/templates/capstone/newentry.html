@@ -1,7 +1,58 @@
 {% extends "capstone/layout.html" %} {% load static%} {% block links %}
 <link href="{% static 'capstone/css/index.css' %}" rel="stylesheet" />
+<link href="{% static 'capstone/css/newentry.css' %}" rel="stylesheet" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
 
 {% endblock %}{% block main %}
 <span class="top-name">Add a new entry</span>
 
+<form action="{% url 'newentry' %}" method="post">
+  {% csrf_token %}
+  <div class="newentry">
+    <select name="rec_type" id="rec_type">
+      <option>Income</option>
+      <option>Expense</option>
+    </select>
+    <input
+      type="text"
+      name="summary"
+      id=""
+      placeholder="Summary"
+      autocomplete="off"
+    />
+    <select name="t_type" id="t_type">
+      <option>Salary</option>
+      <option>Others</option>
+    </select>
+    <input
+      type="number"
+      name="amt"
+      id=""
+      placeholder="Amount"
+      autocomplete="off"
+    />
+  </div>
+  <button type="submit">Add transaction</button>
+</form>
+
+<script>
+  var rec_type = document.getElementById("rec_type");
+  var t_type = document.getElementById("t_type");
+
+  rec_type.onchange = () => {
+    if (rec_type.value == "Income")
+      t_type.innerHTML = `<option>Salary</option>
+                        <option>Others</option>`;
+    else if (rec_type.value == "Expense")
+      t_type.innerHTML = `<option>Food</option>
+                        <option>Rent</option>;
+                        <option>Entertainment</option>;
+                        <option>Business</option>;
+                        <option>Travel</option>;
+                        <option>Misc</option>`;
+  };
+</script>
 {% endblock %}

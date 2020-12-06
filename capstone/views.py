@@ -68,6 +68,7 @@ def login_view(request):
         
            
 def index(request):
+    
     exp_dict = {}
     inc_dict = {}
     for key in exp_type:
@@ -94,13 +95,6 @@ def index(request):
 
 
 
-# def get_data(request):
-#     data = {
-#         'sales': 100,
-#         'customers': 10,
-#     }
-#     data = dumps(data)
-#     return render(request,"capstone/test.html",{'data':data})
 
 def logout_view(request):
     logout(request)
@@ -117,4 +111,21 @@ def transactions(request,rec_type):
         return render(request, "capstone/transactions.html", {'trans': trans_list})
         
 def newentry(request):
+    if request.method == 'POST':
+        rec_type = request.POST['rec_type']
+        summary = request.POST['summary']
+        t_type = request.POST['t_type']
+        amt = request.POST['amt']
+        
+        
+        if rec_type == 'Income':
+            # print(rec_type, summary, amt, t_type,"yo")
+            # pass
+            rec = Income.objects.create(user=request.user, summary=summary, t_type=t_type, amt=amt)
+            rec.save()
+        elif rec_type == 'Expense':
+            # print(rec_type, summary, amt, t_type,"no")
+            # pass
+            rec = Expense.objects.create(user=request.user, summary=summary, t_type=t_type, amt=amt)
+            rec.save()
     return render(request,"capstone/newentry.html")
