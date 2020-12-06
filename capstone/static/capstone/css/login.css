@@ -78,3 +78,47 @@ button {
   text-decoration: none;
   font-weight: 100;
 }
+
+@media (max-width: 480px) {
+  #img {
+    display: none;
+  }
+  * {
+    background-color: #b4d6f0;
+  }
+  #header {
+    background-color: #b4d6f0;
+  }
+  #login-card {
+    margin-top: 70%;
+  }
+  input {
+    width: 250px;
+    margin-bottom: 10%;
+    padding-left: 0;
+    font-size: 20px;
+    height: 50px;
+    border: none;
+    text-align: center;
+    background: #d7e0fd;
+    border-radius: 150px;
+  }
+  button {
+    width: 70%;
+    margin-bottom: 5%;
+    margin-left: 30%;
+    height: 50px;
+    border: none;
+    background: #4052f2;
+    border-radius: 150px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+  }
+  #login-card a {
+    margin-left: 30%;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 50;
+  }
+}
