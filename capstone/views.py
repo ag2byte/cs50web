@@ -6,21 +6,13 @@ from django.contrib.auth import login,authenticate,logout
 from django.urls import reverse
 from json import dumps
 from django.db.models import Sum
+
 # this is what we use to create the dictionaried that we are making to senf to frontend
 exp_type = ['Food','Rent','Entertainment','Business','Travel','Misc']
 inc_type = ['Salary','Others']
 
 def testfunction(request):
-    #this funtion was used for various debugging things during development
-    # User.objects.all().delete()
 
-    # users = User.objects.all()
-    # for user in users:
-    #     print(user.username,user.password)
-    # t = Expense.objects.all().filter(t_type = exp_type[0])
-    # for i in t:
-    #     print(i.summary)
-    # print(exp_type,inc_type)
     foo = dict()
     for key in exp_type:
         
@@ -80,14 +72,23 @@ def index(request):
     inc_dict = {}
     for key in exp_type:
         t = Expense.objects.all().filter(t_type=key)
-            
-        exp_dict[key]=t.aggregate(Sum('amt'))
+        s = t.aggregate(Sum('amt'))['amt__sum']
+        if s!= None:
+            exp_dict[key] = s
+        else:
+            exp_dict[key] = 0
     for key in inc_type:
         t = Income.objects.all().filter(t_type=key)
-            
-        inc_dict[key]=t.aggregate(Sum('amt'))
+        s = t.aggregate(Sum('amt'))['amt__sum']
+        if s != None:
+            inc_dict[key] = s
+        else:
+            inc_dict[key] = 0    
+        # inc_dict[key] = t.aggregate(Sum('amt'))['amt__sum']
+    # print(inc_dict)
     inc_dict = dumps(inc_dict)
     exp_dict = dumps(exp_dict)
+    # print(inc_dict,exp_dict)
     return render(request, 'capstone/index.html',{'inc':inc_dict,'exp':exp_dict})
 
 # Create your views here.
@@ -99,7 +100,7 @@ def get_data(request):
         'customers': 10,
     }
     data = dumps(data)
-    return HttpResponse('get_Data',{'data':data})
+    return render(request,"capstone/test.html",{'data':data})
 
 def logout_view(request):
     logout(request)

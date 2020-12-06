@@ -1,31 +1,55 @@
 <!-- this is the first page after login -->
 {% extends "capstone/layout.html" %} {% load static%} {% block links %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+
 <link href="{% static 'capstone/css/index.css' %}" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link
+  href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
+  rel="stylesheet"
+/>
 
 {% endblock %}{% block main %}
 <span class="top-name">Hi, {{user.username}}</span>
-
+<div id="totals">
+  <span id="inc_total"></span>
+  <span id="exp_total"></span>
+</div>
 <div class="graphs">
   <!-- <span> hello </span> -->
   <canvas id="income_Chart"></canvas>
   <canvas id="expense_Chart"></canvas>
 </div>
 <script>
+  var inc = JSON.parse(`{{inc|escapejs}}`);
+  var exp = JSON.parse(`{{exp|escapejs}}`);
+  console.log(inc, exp);
+  var inc_labels = Object.keys(inc);
+  var inc_data = Object.values(inc);
+
+  var exp_labels = Object.keys(exp);
+  var exp_data = Object.values(exp);
+  window.onload = () => {
+    document.getElementById("inc_total").innerText =
+      "Income: " + inc_data.reduce((a, b) => a + b, 0);
+    document.getElementById("exp_total").innerText =
+      "Expense: " + exp_data.reduce((a, b) => a + b, 0);
+  };
+
+  console.log(inc_labels, inc_data, exp_labels, exp_data);
   let income_Chart = document.getElementById("income_Chart").getContext("2d");
   let iChart = new Chart(income_Chart, {
     type: "bar",
     data: {
-      labels: ["Salary", "Others"],
+      labels: inc_labels,
       datasets: [
         {
           label: "Income",
-          data: [12000, 15000],
+          data: inc_data,
           backgroundColor: ["#415bad", "#1d5981"],
           borderWidth: 0,
           hoverBorderWidth: 1,
           hoverBorderColor: "white",
-          barThickness: 20,
         },
       ],
     },
@@ -47,12 +71,19 @@
   let eChart = new Chart(expense_Chart, {
     type: "bar",
     data: {
-      labels: ["Salary", "Others", "bewurbu", "sdfsdf", "sfsefse"],
+      labels: exp_labels,
       datasets: [
         {
-          label: "Income",
-          data: [12000, 15000, 2323, 2323, 3223],
-          backgroundColor: ["#415bad", "#1d5981"],
+          label: "Expense",
+          data: exp_data,
+          backgroundColor: [
+            "#415bad",
+            "#1d5981",
+            "#2c7bb0",
+            "#155b8a",
+            "#62a9d9",
+            "#043759",
+          ],
           borderWidth: 0,
           hoverBorderWidth: 1,
           hoverBorderColor: "white",
