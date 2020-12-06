@@ -11,12 +11,11 @@ body {
 
 #signupcard {
   display: flex;
-  flex-direction: row ;
-  padding-top: 15%;
+  flex-direction: row;
+  margin-top: 15%;
   padding-left: 25%;
 }
 #signupcard input {
-  
   width: 25%;
   margin-bottom: 5%;
   padding-left: 50px;
@@ -29,10 +28,10 @@ body {
 /* input::placeholder {
     padding-left: 100px;
   } */
-#signupcard button {
+button {
   width: 20%;
   margin-bottom: 5%;
-
+  margin-left: 75%;
   height: 60px;
   border: none;
   background: #4052f2;
@@ -41,8 +40,31 @@ body {
   font-weight: bold;
   color: white;
 }
-#signupcard button:hover {
+button:hover {
   transition: ease-in 200ms;
   background: #fcaa23;
   cursor: pointer;
+}
+@media (max-width: 480px) {
+  #signupcard {
+    flex-direction: column;
+    margin-top: 80%;
+    padding-left: 10%;
+  }
+  button {
+    width: 80%;
+    margin-left: 12%;
+    font-weight: normal;
+  }
+  #signupcard input {
+    width: 80%;
+
+    margin-bottom: 5%;
+    padding-left: 50px;
+    font-size: 20px;
+    height: 50px;
+    border: solid 2px #4052f2;
+    background: white;
+    border-radius: 150px;
+  }
 }
