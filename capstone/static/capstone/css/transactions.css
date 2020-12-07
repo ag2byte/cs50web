@@ -60,3 +60,35 @@ td {
   font-weight: bold;
   color: #0b0722;
 }
+
+@media (max-width: 600px) {
+  table {
+    margin-left: 5vw;
+    margin-right: 0;
+    margin-top: 10vh;
+    width: 90%;
+  }
+  thead {
+    font-size: 20px;
+    height: 25px;
+  }
+  tbody {
+    font-size: 15px;
+  }
+  .table_date {
+    width: 20%;
+  }
+  .table_summ {
+    width: 30%;
+  }
+  .table_amt {
+    width: 15%;
+  }
+  .table_type {
+    width: 35%;
+  }
+  .dropdown {
+    margin-left: 5vw;
+    width: 90%;
+  }
+}

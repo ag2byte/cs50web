@@ -31,3 +31,35 @@ button:hover {
   background: #fcaa23;
   cursor: pointer;
 }
+
+@media (max-width: 600px) {
+  .newentry {
+    /* margin-top: 10%; */
+    height: 40vh;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-left: 15%;
+  }
+  .newentry select,
+  input {
+    width: 80%;
+    border-radius: 150px;
+    text-align: center;
+    outline: none;
+  }
+  .newentry select {
+    text-align: center;
+    text-align-last: center;
+
+    /* webkit*/
+  }
+  .newentry option {
+    text-align: left;
+    /* reset to left*/
+  }
+  button {
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 30px;
+  }
+}
