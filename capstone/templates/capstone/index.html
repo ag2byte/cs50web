@@ -17,8 +17,8 @@
 </div>
 <div class="graphs">
   <!-- <span> hello </span> -->
-  <canvas id="income_Chart"></canvas>
-  <canvas id="expense_Chart"></canvas>
+  <div><canvas id="income_Chart"></canvas></div>
+  <div><canvas id="expense_Chart"></canvas></div>
 </div>
 <script>
   var inc = JSON.parse(`{{inc|escapejs}}`);
@@ -54,7 +54,7 @@
       ],
     },
     options: {
-      responsive: false,
+      responsive: true,
       maintainAspectRatio: false,
       scales: {
         yAxes: [
@@ -91,7 +91,7 @@
       ],
     },
     options: {
-      responsive: false,
+      responsive: true,
       maintainAspectRatio: false,
 
       scales: {

@@ -94,17 +94,22 @@ main {
   font-weight: 300;
 }
 
-/* @media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
   .navbar {
     bottom: 0;
     width: 100vw;
     height: 5rem;
   }
-
-  .logo {
+  .navbar:hover {
+    width: 100vw;
+  }
+  /*
+  .nav-item .link-text {
+    display: none;
+  } */
+  .navbar:hover .link-text {
     display: none;
   }
-
   .navbar-nav {
     flex-direction: row;
   }
@@ -114,9 +119,11 @@ main {
   }
 
   main {
-    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 5rem;
   }
-} */
+}
 /* 
 @media only screen and (min-width: 600px) {
   .navbar {
@@ -139,5 +146,15 @@ main {
 
   .navbar:hover .logo-text {
     left: 0px;
+  }
+} */
+/* @media (max-width: 480px) {
+  .navbar {
+    bottom: 0;
+    width: 100vw;
+    height: 5rem;
+  }
+  .navbar-nav {
+    flex-direction: row;
   }
 } */

@@ -72,14 +72,14 @@ def index(request):
     exp_dict = {}
     inc_dict = {}
     for key in exp_type:
-        t = Expense.objects.all().filter(t_type=key)
+        t = Expense.objects.all().filter(t_type=key,user= request.user)
         s = t.aggregate(Sum('amt'))['amt__sum']
         if s!= None:
             exp_dict[key] = s
         else:
             exp_dict[key] = 0
     for key in inc_type:
-        t = Income.objects.all().filter(t_type=key)
+        t = Income.objects.all().filter(t_type=key,user= request.user)
         s = t.aggregate(Sum('amt'))['amt__sum']
         if s != None:
             inc_dict[key] = s

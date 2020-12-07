@@ -45,7 +45,7 @@ button:hover {
   background: #fcaa23;
   cursor: pointer;
 }
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   #signupcard {
     flex-direction: column;
     margin-top: 80%;

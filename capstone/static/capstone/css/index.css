@@ -14,9 +14,13 @@
   flex-direction: row;
   justify-content: space-evenly;
 }
-canvas {
+.graphs div {
   width: 50%;
-  height: 2000px;
+  height: 450px;
+}
+.graphs .canvas {
+  /* width: 600px; */
+  height: 400px;
 }
 
 #totals {
@@ -32,4 +36,31 @@ canvas {
   font-size: 50px;
   font-weight: bold;
   font-family: "DM Sans", arial;
+}
+
+@media (max-width: 600px) {
+  .graphs {
+    flex-direction: column;
+  }
+  .graphs div {
+    height: 400px;
+    width: 100%;
+  }
+  .graphs .canvas {
+    height: 400px;
+  }
+  #totals {
+    height: 80px;
+  }
+  #totals span {
+    padding-top: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: "DM Sans", arial;
+  }
+  .top-name {
+    height: 30px;
+
+    font-size: 30px;
+  }
 }
