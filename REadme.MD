@@ -1,4 +1,4 @@
-# Capstone Project under work
+# Capstone Project cs50w
 
 This is my final project for cs50w. This is an income expense tracker.
 

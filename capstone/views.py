@@ -11,18 +11,6 @@ from django.db.models import Sum
 exp_type = ['Food','Rent','Entertainment','Business','Travel','Misc']
 inc_type = ['Salary','Others']
 
-def testfunction(request):
-
-    foo = dict()
-    for key in exp_type:
-        
-        t = Expense.objects.all().filter(t_type=key)
-            
-        foo[key]=t.aggregate(Sum('amt'))
-    print(foo)
-    print(foo['Food']['amt__sum'])
-        
-    return HttpResponse('this is a test function')
 
 
 def signup(request):
@@ -85,11 +73,10 @@ def index(request):
             inc_dict[key] = s
         else:
             inc_dict[key] = 0    
-        # inc_dict[key] = t.aggregate(Sum('amt'))['amt__sum']
-    # print(inc_dict)
+  
     inc_dict = dumps(inc_dict)
     exp_dict = dumps(exp_dict)
-    # print(inc_dict,exp_dict)
+    
     return render(request, 'capstone/index.html',{'inc':inc_dict,'exp':exp_dict})
 
 
@@ -119,13 +106,11 @@ def newentry(request):
         
         
         if rec_type == 'Income':
-            # print(rec_type, summary, amt, t_type,"yo")
-            # pass
+            
             rec = Income.objects.create(user=request.user, summary=summary, t_type=t_type, amt=amt)
             rec.save()
         elif rec_type == 'Expense':
-            # print(rec_type, summary, amt, t_type,"no")
-            # pass
+            
             rec = Expense.objects.create(user=request.user, summary=summary, t_type=t_type, amt=amt)
             rec.save()
     return render(request,"capstone/newentry.html")
